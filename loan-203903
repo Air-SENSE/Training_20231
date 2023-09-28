@@ -1,0 +1,24 @@
+#include <Arduino.h>
+
+const int ledPin = 14;      // LED chân 14
+const int buttonPin = 12;   // nút nhấn chân 12
+
+bool ledState = false;
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+  pinMode(buttonPin, INPUT_PULLUP);
+}
+
+void loop() {
+  // đọc trạng thái của nút nhấn
+  int buttonState = digitalRead(buttonPin);
+
+  // nút nhấn có được nhấn hay không
+  if (buttonState == LOW) {
+    // đảo trạng thái LED
+    ledState = !ledState;
+    digitalWrite(ledPin, ledState);
+    delay(100); 
+  }
+}
